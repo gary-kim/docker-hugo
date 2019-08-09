@@ -1,0 +1,21 @@
+kind: pipeline
+name: build-and-deploy
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build-and-deploy-image
+    image: plugins/docker
+    settings:
+      dockerfile: Dockerfile
+      repo: garykim/hugo
+      username: garykim
+      password:
+        from_secret: docker_password
+
+---
+kind: secret
+name: docker_password
+data: ozVISJhAz51QIczo6H4EIkNUDEzDzoT4oHeKJEdFL5eFAGcLigTiQpui8E4g0yEVfQ==
