@@ -6,6 +6,26 @@ platform:
   arch: amd64
 
 steps:
+  - name: download-hugo
+    image: plugins/download
+    settings: 
+      source: https://github.com/gohugoio/hugo/archive/v0.56.3.zip
+      destination: hugo.zip
+      sha256: 29d3ceea5ccec1834a2e7c62c35f139ec581bad2de99be90704c911c777bc83c
+  - name: unzip
+    image: alpine:3.10
+    commands:
+      - unzip -q -d . hugo.zip
+      - mv hugo-0.56.3 hugo-src
+  - name: build-hugo
+    image: golang:1.12
+    commands: 
+      - cd hugo-src && go build
+    environment:
+      GO111MODULE: on
+      GOARCH: amd64
+      GOOS: linux
+      GOPROXY: direct
   - name: build-and-deploy-image
     image: plugins/docker
     settings:
