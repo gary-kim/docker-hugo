@@ -10,7 +10,7 @@ steps:
     image: docker:git
     commands:
       - git clone https://github.com/gohugoio/hugo hugo-src
-      - cd hugo-src && git checkout v0.57.2
+      - cd hugo-src && git checkout v0.58.0
   - name: build-hugo-extended
     image: golang:1.12
     commands: 
