@@ -12,7 +12,7 @@ steps:
       - git clone https://github.com/gohugoio/hugo hugo-src
       - cd hugo-src && git checkout $(cat ../version)
   - name: build-hugo-extended
-    image: golang:1.12
+    image: golang:1.13
     commands: 
       - (cd hugo-src && go build -o hugo --tags extended main.go)
       - (cd hugo-src && ../tags.sh -extended) > .tags
@@ -33,7 +33,7 @@ steps:
       password:
         from_secret: docker_password
   - name: build-hugo-standard
-    image: golang:1.12
+    image: golang:1.13
     commands: 
       - (cd hugo-src && go build -o hugo main.go)
       - (cd hugo-src && ../tags.sh) > .tags
