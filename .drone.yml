@@ -27,7 +27,7 @@ steps:
   - name: build-and-deploy-extended-image
     image: plugins/docker
     settings:
-      dockerfile: Dockerfile
+      dockerfile: extended.Dockerfile
       repo: garykim/hugo
       username: garykim
       password:
