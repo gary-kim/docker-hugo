@@ -23,7 +23,7 @@ steps:
       GO111MODULE: on
       GOARCH: amd64
       GOOS: linux
-      GOPROXY: direct
+      GOPROXY: https://proxy.golang.org,direct
   - name: build-and-deploy-extended-image
     image: plugins/docker
     settings:
@@ -44,7 +44,7 @@ steps:
       GO111MODULE: on
       GOARCH: amd64
       GOOS: linux
-      GOPROXY: direct
+      GOPROXY: https://proxy.golang.org,direct
   - name: build-and-deploy-standard-image
     image: plugins/docker
     settings:
