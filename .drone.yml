@@ -57,8 +57,3 @@ steps:
 volumes:
   - name: GOPATH
     temp: {}
-
----
-kind: secret
-name: docker_password
-data: ozVISJhAz51QIczo6H4EIkNUDEzDzoT4oHeKJEdFL5eFAGcLigTiQpui8E4g0yEVfQ==
