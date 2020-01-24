@@ -10,10 +10,10 @@ steps:
     image: docker:git
     commands:
       - git clone https://github.com/gohugoio/hugo hugo-src
-      - cd hugo-src && git checkout $(cat ../version)
+      - cd hugo-src && git checkout $(cat ../VERSION)
   - name: build-hugo-extended
     image: golang:1.13
-    commands: 
+    commands:
       - (cd hugo-src && go build -o hugo --tags extended main.go)
       - (cd hugo-src && ../tags.sh -extended) > .tags
     volumes:
@@ -34,7 +34,7 @@ steps:
         from_secret: docker_password
   - name: build-hugo-standard
     image: golang:1.13
-    commands: 
+    commands:
       - (cd hugo-src && go build -o hugo main.go)
       - (cd hugo-src && ../tags.sh) > .tags
     volumes:

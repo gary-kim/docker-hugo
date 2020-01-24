@@ -1,0 +1,5 @@
+{
+  "upstreamRepoUrl": "https://github.com/gohugoio/hugo",
+  "pullRequest": true,
+  "pullRequestNotify": "@gary-kim"
+}
