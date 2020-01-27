@@ -32,6 +32,27 @@ steps:
       username: garykim
       password:
         from_secret: docker_password
+    when:
+      event:
+        - push
+      branch:
+        - master
+      repo:
+        - gary-kim/docker-hugo
+  - name: build-extended-image
+    image: plugins/docker
+    settings:
+      dockerfile: extended.Dockerfile
+      repo: garykim/hugo
+      dry_run: true
+    when:
+      event:
+        exclude:
+          - push
+      branch:
+        - master
+      repo:
+        - gary-kim/docker-hugo
   - name: build-hugo-standard
     image: golang:1.13
     commands:
@@ -53,6 +74,28 @@ steps:
       username: garykim
       password:
         from_secret: docker_password
+    when:
+      event:
+        - push
+      branch:
+        - master
+      repo:
+        - gary-kim/docker-hugo
+  - name: build-standard-image
+    image: plugins/docker
+    settings:
+      dockerfile: Dockerfile
+      repo: garykim/hugo
+      dry_run: true
+    when:
+      event:
+        exclude:
+          - push
+      branch:
+        - master
+      repo:
+        - gary-kim/docker-hugo
+
 
 volumes:
   - name: GOPATH
