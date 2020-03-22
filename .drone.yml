@@ -12,7 +12,7 @@ steps:
       - git clone https://github.com/gohugoio/hugo hugo-src
       - cd hugo-src && git checkout $(cat ../VERSION)
   - name: build-hugo-extended
-    image: golang:1.13
+    image: golang:1.14
     commands:
       - (cd hugo-src && go build -o hugo --tags extended main.go)
       - (cd hugo-src && ../tags.sh -extended) > .tags
@@ -54,7 +54,7 @@ steps:
       repo:
         - gary-kim/docker-hugo
   - name: build-hugo-standard
-    image: golang:1.13
+    image: golang:1.14
     commands:
       - (cd hugo-src && go build -o hugo main.go)
       - (cd hugo-src && ../tags.sh) > .tags
