@@ -14,13 +14,15 @@ steps:
   - name: build-hugo-extended
     image: golang:1.14
     commands:
-      - (cd hugo-src && go build -o hugo --tags extended main.go)
+      - go get github.com/magefile/mage > /dev/null
+      - (cd hugo-src && HUGO_BUILD_TAGS=extended mage hugo)
       - (cd hugo-src && ../tags.sh -extended) > .tags
     volumes:
       - name: GOPATH
         path: /go
     environment:
       GO111MODULE: on
+      CGO_ENABLED: 1
       GOARCH: amd64
       GOOS: linux
       GOPROXY: https://proxy.golang.org,direct
@@ -56,13 +58,15 @@ steps:
   - name: build-hugo-standard
     image: golang:1.14
     commands:
-      - (cd hugo-src && go build -o hugo main.go)
+      - go get github.com/magefile/mage > /dev/null
+      - (cd hugo-src && mage hugo)
       - (cd hugo-src && ../tags.sh) > .tags
     volumes:
       - name: GOPATH
         path: /go
     environment:
       GO111MODULE: on
+      CGO_ENABLED: 1
       GOARCH: amd64
       GOOS: linux
       GOPROXY: https://proxy.golang.org,direct
