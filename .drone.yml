@@ -104,3 +104,10 @@ steps:
 volumes:
   - name: GOPATH
     temp: {}
+
+trigger:
+  branch:
+    - master
+  event:
+    - pull_request
+    - push
