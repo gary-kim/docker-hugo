@@ -5,7 +5,7 @@ ARG pandoc_version=2.9.2
 
 COPY hugo-src/hugo /usr/bin
 COPY docker-entrypoint.sh /
-RUN apk add --no-cache ca-certificates libc6-compat libstdc++ make git asciidoctor asciidoc py3-docutils
+RUN apk add --no-cache ca-certificates libc6-compat libstdc++ make git asciidoctor asciidoc py3-docutils curl bash
 
 # Install Pandoc
 RUN cd /tmp && \
