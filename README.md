@@ -19,3 +19,4 @@ Hugo Static Site Generator v0.68.3-157669A0/extended linux/amd64 BuildDate: 2020
 
 **v0.68.3 Onwards:** Add `bash`, `curl` to extended image.  
 **v0.67.1 Onwards:** Add `pandoc`, `rst2html`, `asciidoc`, `asciidoctor` to extended image. These are external helpers used by Hugo for some content formats.
+**v0.70.0 Onwards:** Add Babel dependencies.
