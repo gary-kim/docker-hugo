@@ -12,9 +12,9 @@ steps:
       - git clone https://github.com/gohugoio/hugo hugo-src
       - cd hugo-src && git checkout $(cat ../VERSION)
   - name: build-hugo-extended
-    image: golang:1.16
+    image: golang:1.18
     commands:
-      - go get github.com/magefile/mage > /dev/null
+      - go install github.com/magefile/mage@latest > /dev/null
       - (cd hugo-src && HUGO_BUILD_TAGS=extended mage hugo)
       - (cd hugo-src && ../tags.sh -extended) > .tags
     volumes:
@@ -56,9 +56,9 @@ steps:
       repo:
         - gary-kim/docker-hugo
   - name: build-hugo-standard
-    image: golang:1.16
+    image: golang:1.18
     commands:
-      - go get github.com/magefile/mage > /dev/null
+      - go install github.com/magefile/mage@latest > /dev/null
       - (cd hugo-src && mage hugo)
       - (cd hugo-src && ../tags.sh) > .tags
     volumes:
