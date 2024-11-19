@@ -1,7 +1,7 @@
-FROM alpine:3.19
+FROM alpine:3.20
 LABEL maintainer="Gary Kim <gary@garykim.dev>"
 
-ARG pandoc_version=3.1.12.2
+ARG pandoc_version=3.5
 
 COPY hugo-src/hugo /usr/bin
 COPY docker-entrypoint.sh /
