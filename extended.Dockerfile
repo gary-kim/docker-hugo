@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.20
 LABEL maintainer="Gary Kim <gary@garykim.dev>"
 
 ARG pandoc_version=2.9.2
