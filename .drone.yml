@@ -27,7 +27,7 @@ steps:
       GOOS: linux
       GOPROXY: https://proxy.golang.org,direct
   - name: build-and-deploy-extended-image
-    image: garykim/drone-docker
+    image: plugins/docker
     settings:
       dockerfile: extended.Dockerfile
       repo: garykim/hugo
@@ -42,7 +42,7 @@ steps:
       repo:
         - gary-kim/docker-hugo
   - name: build-extended-image
-    image: garykim/drone-docker
+    image: plugins/docker
     settings:
       dockerfile: extended.Dockerfile
       repo: garykim/hugo
@@ -71,7 +71,7 @@ steps:
       GOOS: linux
       GOPROXY: https://proxy.golang.org,direct
   - name: build-and-deploy-standard-image
-    image: garykim/drone-docker
+    image: plugins/docker
     settings:
       dockerfile: Dockerfile
       repo: garykim/hugo
@@ -86,7 +86,7 @@ steps:
       repo:
         - gary-kim/docker-hugo
   - name: build-standard-image
-    image: garykim/drone-docker
+    image: plugins/docker
     settings:
       dockerfile: Dockerfile
       repo: garykim/hugo
