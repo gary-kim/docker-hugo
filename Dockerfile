@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.22
 LABEL maintainer="Gary Kim <gary@garykim.dev>"
 COPY hugo-src/hugo /usr/bin
 COPY docker-entrypoint.sh /
